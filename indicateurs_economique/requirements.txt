@@ -1,0 +1,13 @@
+pandas_ta == 0.3.14b0
+sklearn == 1.4.2
+scipy == 1.11.4
+streamlit == 1.41.1
+seaborn == 0.13.2
+statsmodels == 0.14.4
+plotly == 5.24.1
+yfinance == 0.2.52
+mplfinance == 0.12.10b0
+plotly == 5.24.1
+numpy == 1.26.4
+matplotlib == 3.10.0
+pandas == 2.2.3
