@@ -1,7 +1,8 @@
 import pandas as pd
 import streamlit as st
 import plotly.graph_objects as go
-import pandas_ta as ta  
+import pandas_ta as ta 
+import numpy as np 
 
 st.set_page_config(page_title="Dashboard des Actifs Financiers", layout="wide")
 
