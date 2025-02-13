@@ -17,9 +17,9 @@ def load_data(file_path):
  
 # Liste des fichiers de données
 data_files = {
-    'S&P 500': 'ath/sp500.csv',
-    'Bitcoin': 'ath/btc.csv',
-    'Gold': 'ath/gold.csv'
+    'S&P 500': '../ath/sp500.csv',
+    'Bitcoin': '../ath/btc.csv',
+    'Gold': '../ath/gold.csv'
 }
  
 # Barre latérale pour la sélection de l'actif
