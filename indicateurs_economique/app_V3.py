@@ -1,7 +1,8 @@
+
+import pandas_ta as ta
 import pandas as pd
 import streamlit as st
 import plotly.graph_objects as go
-import pandas_ta as ta
 from datetime import datetime
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
