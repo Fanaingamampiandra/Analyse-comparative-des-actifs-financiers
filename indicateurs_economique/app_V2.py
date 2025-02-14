@@ -4,6 +4,8 @@ import plotly.graph_objects as go
 import pandas_ta as ta
 import plotly.express as px
 from datetime import datetime
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
  
 # Configuration de la page
 st.set_page_config(page_title="Dashboard des Actifs Financiers", layout="wide")
@@ -45,7 +47,7 @@ if selected_asset:
     df['RSI'] = ta.rsi(df['Close'], length=14)
     df['MACD'] = ta.macd(df['Close'], fast=12, slow=26, signal=9)['MACD_12_26_9']
     df['MDD'] = (df['Close'] / df['Close'].cummax() - 1) * 100
-    df['Sharpe_Ratio'] = df['Close'].pct_change().mean() / df['Close'].pct_change().std()
+    df['Sharpe_Ratio'] = df['Close'].pct_change(fill_method=None).mean() / df['Close'].pct_change(fill_method=None).std()
     bollinger = ta.bbands(df['Close'], length=20, std=2)
     df['BB_Upper'] = bollinger['BBU_20_2.0']
     df['BB_Middle'] = bollinger['BBM_20_2.0']
@@ -57,8 +59,8 @@ if selected_asset:
     # Aperçu
     with tabs[0]:
         st.header(f"Aperçu de {selected_asset}")
-        rendement_moyen = df['Close'].pct_change().mean()
-        volatilite = df['Close'].pct_change().std()
+        rendement_moyen = df['Close'].pct_change(fill_method=None).mean()
+        volatilite = df['Close'].pct_change(fill_method=None).std()
         tendance = "Hausse" if df['Close'].iloc[-1] > df['Close'].iloc[0] else "Baisse"
         st.metric("Rendement Moyen", f"{rendement_moyen:.2%}")
         st.metric("Volatilité", f"{volatilite:.2%}")
