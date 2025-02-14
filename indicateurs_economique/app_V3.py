@@ -162,7 +162,7 @@ if selected_asset:
             pred_start_date = st.date_input("Début de la prédiction", min_date, key="pred_start", min_value=min_date, max_value=max_date)
         with col_pred_end:
             pred_end_date = st.date_input("Fin de la prédiction", max_date, key="pred_end", min_value=min_date, max_value=max_date)
-        prediction_model = st.selectbox("Choisissez un modèle de prédiction", ["LSTM", "ARIMA", "Prophet", "XGBoost"])
+        prediction_model = st.selectbox("Choisissez un modèle de prédiction", ["ARIMA", "Prophet", ])
         if st.button("Lancer la prédiction"):
             st.info("Modèle en cours d'entraînement...")
             st.success(f"Prédiction terminée avec {prediction_model} !")
