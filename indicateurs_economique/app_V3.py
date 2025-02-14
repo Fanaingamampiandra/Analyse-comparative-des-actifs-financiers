@@ -43,8 +43,8 @@ if selected_asset:
     df = df[(df['Date'] >= pd.to_datetime(start_date)) & (df['Date'] <= pd.to_datetime(end_date))]
 
     # Calcul des indicateurs techniques
-    df['SMA'] = df['Close'].rolling(window=50).mean()
-    df['EMA'] = df['Close'].ewm(span=50, adjust=False).mean()
+    df['SMA'] = df['Close'].rolling(window=20).mean()
+    df['EMA'] = df['Close'].ewm(span=20, adjust=False).mean()
     df['RSI'] = ta.rsi(df['Close'], length=14)
     df['MACD'] = ta.macd(df['Close'], fast=12, slow=26, signal=9)['MACD_12_26_9']
     df['MDD'] = (df['Close'] / df['Close'].cummax() - 1) * 100
@@ -135,8 +135,8 @@ if selected_asset:
         if st.button("Lancer la prédiction"):
             st.info("Modèle en cours d'entraînement...")
             st.success(f"Prédiction terminée avec {prediction_model} !")
-            st.metric("Accuracy", "90%")
-            st.metric("Précision", "85%")
+            st.metric("Accuracy", "{}")
+            st.metric("Précision", "{}")
 
 st.markdown("""
 <style>
